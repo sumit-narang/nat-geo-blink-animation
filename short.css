@@ -1,0 +1,110 @@
+body{
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', serif;
+	width: 100%;
+	height: 100vh;
+	background: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.container > span{
+	display: inline-block;
+	color: white;
+}
+
+.opening,.closing{
+	position: relative;
+	width: 100px;
+	height: 100px;
+	background: black;
+}
+
+.closing{
+	left: -5px;
+}
+
+.opening:after,.closing:after{
+	content: '';
+	position: absolute;
+	display: inline-block;
+	width: 5px;
+	height: 100%;
+	background: #caca3f;
+}
+
+.opening:after{
+	right: 0;
+}
+
+.content{
+	position: absolute;
+	z-index: -100;
+	width: 300px;
+	text-align: center;
+}
+
+.hide{
+	display: none !important;
+}
+
+
+/*animation*/
+.opening{
+	animation: blink 0.5s linear forwards, movefirst 0.5s cubic-bezier(0, 0, 0.24, 1.09) 0.5s forwards;
+}
+
+.closing{
+	animation: blink 0.5s linear forwards, movesecond 0.5s cubic-bezier(0, 0, 0.24, 1.09) 0.5s forwards;
+}
+
+@keyframes blink{
+	0%{
+		opacity: 0;
+	}
+	20%{
+		opacity: 1;
+	}
+	40%{
+		opacity: 0;
+	}
+	60%{
+		opacity: 1;
+	}
+	80%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+
+@keyframes movefirst{
+	100%{
+		transform: translate(-150px,0);
+	}
+}
+
+@keyframes movesecond{
+	100%{
+		transform: translate(150px,0);
+	}
+}
+
+@keyframes scale{
+	50%{
+		transform: scale(1.15);
+	}
+	100%{
+		transform: scale(1);
+	}
+}
